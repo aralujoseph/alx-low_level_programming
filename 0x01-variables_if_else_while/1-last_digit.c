@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
 
 /**
@@ -5,15 +7,31 @@
  *and print the last digit of the number stored in the variable n
  *Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	int ch;
+	int n;
+	int x;
 
-	for (ch = 97; ch <= 122; ch++)
+	srand(time(0));
+
+	n = rand() - RAND_MAX / 2;
+	x = n % 10;
+	printf("Last digit of %d is %d ", n, x);
+	if (x > 5)
 	{
-		putchar(ch);
+		printf("and is greater than 5");
 	}
-	putchar(10); /* this is an ascii code for new line*/
-
+	if (x == 0)
+	{
+		printf("and is 0");
+	}
+	if (x < 6  &&  x != 0)
+	{
+		printf("and is less than 6 and not 0");
+	}
+	
+	printf("\n");
+	
 	return (0);
 }
