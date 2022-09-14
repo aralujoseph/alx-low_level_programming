@@ -22,4 +22,5 @@ int main(void)
 		c = a + b;
 	}
 	printf("%u\n", s);
-	return (0);i
+	return (0);
+}
