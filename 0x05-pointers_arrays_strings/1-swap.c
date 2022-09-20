@@ -5,6 +5,7 @@ include "main.h"
  * @b: second integer.
  * Return: no return.
  */
+
 void swap_int(int *a, int *b)
 {
 	int c = *a;
