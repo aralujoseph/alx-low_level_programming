@@ -8,7 +8,7 @@ include "main.h"
 
 void swap_int(int *a, int *b)
 {
-	int c = *a;
+	int q = *a;
 	*a = *b;
-	*b = c;
+	*b = q;
 }
