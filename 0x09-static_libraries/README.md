@@ -1,2 +1,1 @@
-This README file contains all exercises for C-Static Libraries
-
+This README is for task ...
