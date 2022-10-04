@@ -2,23 +2,42 @@
 #include <stdlib.h>
 
 /**
- * free_grid - frees a 2 dimensional grid previously created by your
- * alloc_grid function.
+ * alloc_grid - returns a pointer to a 2 dimensional array of integers.
+ * @width: width of the array.
+ * @height: height of the array.
  *
- * @grid: the grid we'll free up
- * @height: the number of rows in the grid
- *
- * Return: Nothing
+ * Return: pointer of an array of integers
  */
-
-void free_grid(int **grid, int height)
+int **alloc_grid(int width, int height)
 {
-	int j = 0;
+	int **gridout;
+	int i, j;
 
-	while (j < height)
+	if (width < 1 || height < 1)
+		return (NULL);
+
+	gridout = malloc(height * sizeof(int *));
+	if (gridout == NULL)
 	{
-		free(grid[j]);
-		j++;
+		free(gridout);
+		return (NULL);
 	}
-	free(grid);
+
+	for (i = 0; i < height; i++)
+	{
+		gridout[i] = malloc(width * sizeof(int));
+		if (gridout[i] == NULL)
+		{
+			for (i--; i >= 0; i--)
+				free(gridout[i]);
+			free(gridout);
+			return (NULL);
+		}
+	}
+
+	for (i = 0; i < height; i++)
+		for (j = 0; j < width; j++)
+			gridout[i][j] = 0;
+
+	return (gridout);
 }
