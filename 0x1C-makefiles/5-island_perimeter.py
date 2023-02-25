@@ -29,4 +29,3 @@ def island_perimeter(grid):
                 perimeter += num_water_neighbors(grid, i, j)
 
     return perimeter
-
